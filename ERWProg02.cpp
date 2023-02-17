@@ -1,11 +1,11 @@
-/*
+/******************************************************************************
 Name: Evan Whitmer
 Class: CSC 145A
 Date: February 17, 2023
 Description: Finding the k-th smallest in an integer array of 30 integers
 using a function with a pivot value and then partition the values of the array
 in order to sort through and find the k-th smallest value.
-*/
+*******************************************************************************/
 #include <iostream>
 using namespace std;
 
