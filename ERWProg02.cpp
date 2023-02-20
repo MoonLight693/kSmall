@@ -11,13 +11,13 @@ using namespace std;
 
 int partition(int anArray[], int first, int last) {
    int pivot = anArray[first]; //pivot is used for greater and less than at each position
-   int temp = 0;           //temp used for swapping values in the array
-   int s = first;          //the position in the array the pivot will swap with at the end (aka the pivotIndex)
-   int i = s + 1;          //used to travel through the array and check value
+   int temp = 0;               //temp used for swapping values in the array
+   int s = first;              //the position in the array the pivot will swap with at the end (aka the pivotIndex)
+   int i = s + 1;              //used to travel through the array and check value
 
-   while (i < last) {         //while the value of i is less then the area of the array we are searching
-      if (anArray[i] < pivot) {   //if the current value at this position is less than the pivot
-         s++;                 //increment to leave space for new less than pivot number
+   while (i < last) {              //while the value of i is less then the area of the array we are searching
+      if (anArray[i] < pivot) {    //if the current value at this position is less than the pivot
+         s++;                      //increment to leave space for new less than pivot number
          
          //swaps and places new less than pivot number before where the pivot will go
          temp = anArray[s];
@@ -57,8 +57,6 @@ int kSmall(int k, int arr[], int first, int last) {
 Initialize integers called k, first, last and a array of integers called arr
 Initialize an integer called pivotIndex
 */
-
-
 
 void Print(int arr[]) {
    for (int i = 0; i < 29; i++) {
