@@ -23,9 +23,6 @@ int kSmall(int k, int arr[], int first, int last) {
          temp = arr[s];
          arr[s] = arr[i];
          arr[i] = temp;
-         
-         //remove following line after debuging
-         //cout << "s = " << s << " i = " << i << endl;
       }
       
       i++; //continue searching
@@ -35,9 +32,6 @@ int kSmall(int k, int arr[], int first, int last) {
    temp = arr[first];
    arr[first] = arr[s];
    arr[s] = temp;
-
-   //remove after debuging
-   //cout << endl << "k = " << k << " s = " << s << endl;
 
    if (k < s - first + 1) {
       return kSmall(k, arr, first, s - 1);
