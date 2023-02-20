@@ -37,16 +37,16 @@ int partition(int anArray[], int first, int last) {
 }
 
 int kSmall(int k, int arr[], int first, int last) {
-   int s = partition(arr, first, last);   //the position in the array the pivot will swap with at the end (aka the pivotIndex)
+   int pivotIndex = partition(arr, first, last);   //the position in the array the pivot will swap with at the end (aka the pivotIndex)
 
-   if (k < s - first + 1) {
-      return kSmall(k, arr, first, s - 1);
+   if (k < pivotIndex - first + 1) {
+      return kSmall(k, arr, first, pivotIndex - 1);
    }
-   else if (k == s - first + 1) { 
-      return arr[s];
+   else if (k == pivotIndex - first + 1) { 
+      return arr[pivotIndex];
    }
    else {
-      return kSmall(k - (s - first + 1), arr, s + 1, last);
+      return kSmall(k - (pivotIndex - first + 1), arr, pivotIndex + 1, last);
    }
 
    return 0;
