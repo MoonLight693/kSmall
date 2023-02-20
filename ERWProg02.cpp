@@ -9,34 +9,40 @@ in order to sort through and find the k-th smallest value.
 #include <iostream>
 using namespace std;
 
-int kSmall(int k, int arr[], int first, int last) {
-   int pivot = arr[first]; //pivot is used for greater and less than at each position
+int partition(int anArray[], int first, int last) {
+   int pivot = anArray[first]; //pivot is used for greater and less than at each position
    int temp = 0;           //temp used for swapping values in the array
    int s = first;          //the position in the array the pivot will swap with at the end (aka the pivotIndex)
    int i = s + 1;          //used to travel through the array and check value
 
    while (i < last) {         //while the value of i is less then the area of the array we are searching
-      if (arr[i] < pivot) {   //if the current value at this position is less than the pivot
+      if (anArray[i] < pivot) {   //if the current value at this position is less than the pivot
          s++;                 //increment to leave space for new less than pivot number
          
          //swaps and places new less than pivot number before where the pivot will go
-         temp = arr[s];
-         arr[s] = arr[i];
-         arr[i] = temp;
+         temp = anArray[s];
+         anArray[s] = anArray[i];
+         anArray[i] = temp;
       }
       
       i++; //continue searching
    }
 
    //swaps the chosen pivot number with where it should be
-   temp = arr[first];
-   arr[first] = arr[s];
-   arr[s] = temp;
+   temp = anArray[first];
+   anArray[first] = anArray[s];
+   anArray[s] = temp;
+
+   return s;
+}
+
+int kSmall(int k, int arr[], int first, int last) {
+   int s = partition(arr, first, last);   //the position in the array the pivot will swap with at the end (aka the pivotIndex)
 
    if (k < s - first + 1) {
       return kSmall(k, arr, first, s - 1);
    }
-   else if (k == s - first + 1) { //always uses this regardless of k value???????
+   else if (k == s - first + 1) { 
       return arr[s];
    }
    else {
@@ -51,6 +57,8 @@ int kSmall(int k, int arr[], int first, int last) {
 Initialize integers called k, first, last and a array of integers called arr
 Initialize an integer called pivotIndex
 */
+
+
 
 void Print(int arr[]) {
    for (int i = 0; i < 29; i++) {
