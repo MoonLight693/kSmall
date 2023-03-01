@@ -36,6 +36,24 @@ int partition(int anArray[], int first, int last) {
    return s;
 }
 
+/* Psuedo partition
+   Initialize an integer called pivot and set it to the number in the first position of the array
+   Initialize an integer called temp and set it equal to 0
+   Initialize an integer called s and set it equal to the position the array starts at
+   Initialize an integer called i and set it equal to s plus one
+   While i is less than the number of the last position of the array
+      If the number in the array at position i is less than the pivot
+         Increment s
+         Set temp equal to the number at position s in the array
+         Set the number at position s in the array equal to the number at position i in the array
+         Set the number at position i in the array to temp
+      increment i
+   Set temp equal to the number at the first position of the current array
+   Set the number at the first position of the current array equal to the number at position s in the array
+   Set the number at position s in the array equal to temp
+   Return s
+   */
+
 int kSmall(int k, int arr[], int first, int last) {
    int pivotIndex = partition(arr, first, last);   //the position in the array the pivot will swap with at the end (aka the pivotIndex)
 
@@ -48,14 +66,19 @@ int kSmall(int k, int arr[], int first, int last) {
    else {
       return kSmall(k - (pivotIndex - first + 1), arr, pivotIndex + 1, last);
    }
-
-   return 0;
 }
 
 //sorting the array by the pivot
 /* kSmall psuedo
 Initialize integers called k, first, last and a array of integers called arr
-Initialize an integer called pivotIndex
+Initialize an integer called pivotIndex and set it equal to the position of the number that is pivoted
+If k is less than the pivotIndex minus first plus 1
+   Return the function kSmall with parameters k, arr, first, and pivotIndex minus 1
+Else If k is equal to the pivotIndex minus first plus 1
+   Return the number is the arr at the pivotIndex
+Else
+   Return the function kSmall with parameters k minus the difference of the pivotIndex minus first plus 1, arr, pivotIndex plus 1, last
+
 */
 
 void Print(int arr[]) {
