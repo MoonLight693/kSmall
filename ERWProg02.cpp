@@ -68,7 +68,6 @@ int kSmall(int k, int arr[], int first, int last) {
    }
 }
 
-//sorting the array by the pivot
 /* kSmall psuedo
 Initialize integers called k, first, last and a array of integers called arr
 Initialize an integer called pivotIndex and set it equal to the position of the number that is pivoted
