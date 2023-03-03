@@ -68,7 +68,7 @@ int kSmall(int k, int arr[], int first, int last) {
    int pivotIndex = partition(arr, first, last);   //the position in the array the pivot will swap with at the end (aka the pivotIndex)
    
    if (k < pivotIndex - first + 1) {
-      return kSmall(k, arr, first, pivotIndex - 1);
+      return kSmall(k, arr, first, pivotIndex); //pivot always off by -1 so I removed it
    }
    else if (k == pivotIndex - first + 1) { 
       return arr[pivotIndex];
