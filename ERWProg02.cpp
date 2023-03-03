@@ -16,7 +16,8 @@ void Print(int arr[]) {
 }
 
 /* Psuedo Print
-
+   For as long as initialize i set to 0 is less than the size of the arr, increment i
+      Print the number at index i in the array and a space
 */
 
 int partition(int anArray[], int first, int last) {
