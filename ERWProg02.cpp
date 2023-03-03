@@ -9,6 +9,16 @@ in order to sort through and find the k-th smallest value.
 #include <iostream>
 using namespace std;
 
+void Print(int arr[]) {
+   for (int i = 0; i <= 29; i++) {
+      cout << arr[i] << ' ';
+   }
+}
+
+/* Psuedo Print
+
+*/
+
 int partition(int anArray[], int first, int last) {
    int pivot = anArray[first]; //pivot is used for greater and less than at each position
    int temp = 0;               //temp used for swapping values in the array
@@ -56,7 +66,7 @@ int partition(int anArray[], int first, int last) {
 
 int kSmall(int k, int arr[], int first, int last) {
    int pivotIndex = partition(arr, first, last);   //the position in the array the pivot will swap with at the end (aka the pivotIndex)
-
+   
    if (k < pivotIndex - first + 1) {
       return kSmall(k, arr, first, pivotIndex - 1);
    }
@@ -77,37 +87,30 @@ Else If k is equal to the pivotIndex minus first plus 1
    Return the number is the arr at the pivotIndex
 Else
    Return the function kSmall with parameters k minus the difference of the pivotIndex minus first plus 1, arr, pivotIndex plus 1, last
-
 */
-
-void Print(int arr[]) {
-   for (int i = 0; i < 29; i++) {
-      cout << arr[i] << ' ';
-   }
-}
 
 int main() {
    //30 random numbers
    int array30[] = {8, 10, 91, 34, 28, 99, 90, 23, 84, 55, 13, 6, 21, 18, 27,
-   4, 64, 70, 47, 35, 98, 83, 95, 78, 86, 62, 75, 16, 68, 42};
+                    4, 64, 70, 47, 35, 98, 83, 95, 78, 86, 62, 75, 16, 68, 42};
    
    //3rd smallest
    int k = 3;  //the k-th smallest number
-   int smallest = kSmall(k, array30, 0, 29);
+   int smallest = kSmall(k, array30, 0, 30);
    Print(array30);
    cout << endl;
    cout << "The " << k << "rd smallest number is " << smallest << endl << endl;
 
    //10th smallest
    k = 10;  //the k-th smallest number
-   smallest = kSmall(k, array30, 0, 29);
+   smallest = kSmall(k, array30, 0, 30);
    Print(array30);
    cout << endl;
    cout << "The " << k << "th smallest number is " << smallest << endl << endl;
 
    //19th smallest
    k = 19;  //the k-th smallest number
-   smallest = kSmall(k, array30, 0, 29);
+   smallest = kSmall(k, array30, 0, 30);
    Print(array30);
    cout << endl;
    cout << "The " << k << "th smallest number is " << smallest << endl << endl;
